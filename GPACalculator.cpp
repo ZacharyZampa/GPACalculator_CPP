@@ -151,6 +151,7 @@ void menuSelector(char userMenuChoice, GPAList courseList) {
         {
             // method call to add course
             courseList.addCourse(readCourseInfoFromKeyboard());
+            // seems to be overwriting the references with the new line
             break;
         }
         case 'B':
@@ -171,7 +172,7 @@ void menuSelector(char userMenuChoice, GPAList courseList) {
             std::cout << "What would you like to name the file: ";
             std:string fileName = "";
             std::cin >> fileName;
-            fileName = fileName = ".txt";
+            fileName = fileName += ".txt";
 
             courseList.saveToFile(fileName);
             std::cout << "File saved as " + fileName;

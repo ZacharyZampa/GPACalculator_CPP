@@ -26,6 +26,7 @@ GPAList::~GPAList() {}
 
 void GPAList::addCourse(ClassAndGrade course) {
     classes.push_back(course);
+    // seems to be overwriting the references with the new line
 }
 
 
@@ -66,10 +67,10 @@ void GPAList::saveToFile(std::string fileName) {
         // print file header
 //        outfile.precision(4);  // set precision of ofstream numbers to 4
         outFile << "Cumulative GPA: " << GPA << std::endl
-                << "Course\tGPA\tCredits";
+                << "Course\tGPA\tCredits" << std::endl;
         
         for (auto course : classes) {
-            outFile << course.toString();
+            outFile << course.toString() << std::endl;
         }
     } catch(const std::exception& e) {
         std::cout << e.what() << std::endl;
