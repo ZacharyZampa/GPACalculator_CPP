@@ -6,17 +6,10 @@
  */
 #include <cstdlib>
 #include <string>
+#include <iostream>
 #include "ClassAndGrade.h"
 
 using namespace std;
-
-std::string className;
-double classGPA;
-int classCredits;
-    
-
-ClassAndGrade::ClassAndGrade() {
-}
 
 ClassAndGrade::~ClassAndGrade() {
 }
@@ -33,7 +26,7 @@ int ClassAndGrade::getClassCredits() const {
     return classCredits;
 }
 
-void ClassAndGrade::setClassName(std::string name) {
+void ClassAndGrade::setClassName(std::string& name) {
     className = name;
 }
 

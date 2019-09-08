@@ -18,6 +18,7 @@
 
 #include <cstdlib>
 #include <string>
+#include <iostream>
 using namespace std;
 
 class ClassAndGrade {
@@ -26,7 +27,11 @@ public:
     /**
      * The constructor for a course object
      */
-    ClassAndGrade();
+    ClassAndGrade() {
+        this->classCredits = -1;
+        this->classGPA = -1;
+        this->className = "";
+    }
     
     /**
      * The destructor for a course object
@@ -56,7 +61,7 @@ public:
      * Setter
      * @param className
      */
-    virtual void setClassName(std::string className);
+    virtual void setClassName(std::string& className);
     
     /**
      * Setter
@@ -76,7 +81,17 @@ public:
      */
     virtual std::string toString()  const;
     
+    friend std::ostream& operator<<(std::ostream& os, const ClassAndGrade p);
+
+
+private:
+    std::string className;
+    double classGPA;
+    int classCredits;
+    
 };
+
+
 
 
 
