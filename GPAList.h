@@ -53,13 +53,13 @@ public:
      * Save all courses to a file
      * @param fileName name of file to save to
      */
-    virtual void saveToFile(std::string fileName);
+    virtual void saveToFile(std::string& fileName);
     
     /**
      * Load in courses from a file
      * @param fileName
      */
-    virtual void pullFromFile(std::string fileName);
+    virtual void pullFromFile(std::string& fileName);
     
     
 };

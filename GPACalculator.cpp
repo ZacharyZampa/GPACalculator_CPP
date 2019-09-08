@@ -145,7 +145,7 @@ ClassAndGrade readCourseInfoFromKeyboard() {
 
 
 
-void menuSelector(char userMenuChoice, GPAList courseList) {
+void menuSelector(char userMenuChoice, GPAList& courseList) {
     switch (userMenuChoice) {
         case 'A':
         {

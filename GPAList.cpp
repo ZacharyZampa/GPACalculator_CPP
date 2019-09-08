@@ -14,19 +14,16 @@
 #include "ClassAndGrade.h"
 
 using namespace std;
-
 std::vector<ClassAndGrade> classes;
 
-GPAList::GPAList() {
-    
-}
+
+GPAList::GPAList() {}
 
 GPAList::~GPAList() {}
 
 
 void GPAList::addCourse(ClassAndGrade course) {
     classes.push_back(course);
-    // seems to be overwriting the references with the new line
 }
 
 
@@ -57,7 +54,7 @@ double GPAList::getGPA() {
 }
 
 
-void GPAList::saveToFile(std::string fileName) {
+void GPAList::saveToFile(std::string& fileName) {
     try {
         std::ofstream outFile(fileName);
         
@@ -78,7 +75,7 @@ void GPAList::saveToFile(std::string fileName) {
 }
 
 
-void GPAList::pullFromFile(std::string fileName) {
+void GPAList::pullFromFile(std::string& fileName) {
     try {
         std::ifstream inFile(fileName);
        
@@ -94,15 +91,11 @@ void GPAList::pullFromFile(std::string fileName) {
         
         while (inFile >> className >> classGPA >> classCredits) {
             
-//            // separate line into three Course values
-//            className = line.substr(0, std::find("\t"));
-//            classGPA =  line.substr(className.size() + 1, std::find("\t"));
-//            classCredits = line.substr(className.size() + 6, std::find("\t"));
-            
             ClassAndGrade newCourse;
             newCourse.setClassName(className);
             newCourse.setClassGPA(classGPA);
             newCourse.setClassCredits(classCredits);
+            classes.push_back(newCourse);
         }
     } catch (const std::exception& e) {
         e.what();
